@@ -1,0 +1,137 @@
+<!--
+さくらっち非公式まとめサイト（初期バージョン）
+=================================================
+このファイルは“デジタルゲーム公式サイト”風の一枚LPです。
+TailwindCSS を読み込み、セクションごとに ID を割り振っているので、
+順に内容を埋めたり、デザインを調整したりしながらステップアップしていきましょう。
+
+◆ ステップガイド
+STEP 1: ヒーローセクションのキャッチコピー & バックグラウンド画像
+STEP 2: About セクションの経歴テキストを確定
+STEP 3: Projects の各カードに画像を用意（PNG/JPG/WebP 推奨）
+STEP 4: Crowdfunding セクションに支援リンクを追加
+STEP 5: ギャラリーやCTAボタンを装飾・微調整
+
+※ Tailwind のクラスを追加・変更するだけで配色やサイズを簡単に調整できます。
+-->
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>さくらっち非公式まとめサイト</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* 追加カスタム（ネオンサイン風） */
+      .neon-title {
+        text-shadow: 0 0 8px #f472b6, 0 0 16px #f472b6, 0 0 32px #db2777;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-950 text-gray-100 font-sans antialiased">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-gray-900/80 backdrop-blur border-b border-pink-500/30">
+      <div class="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
+        <h1 class="font-extrabold text-xl md:text-2xl neon-title">Sakuracchi Unofficial Hub</h1>
+        <nav class="space-x-4 hidden md:block">
+          <a href="#about" class="hover:text-pink-400 transition">ABOUT</a>
+          <a href="#projects" class="hover:text-pink-400 transition">PROJECTS</a>
+          <a href="#crowdfunding" class="hover:text-pink-400 transition">CROWDFUNDING</a>
+          <a href="#gallery" class="hover:text-pink-400 transition">GALLERY</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section (STEP 1) -->
+    <section class="relative h-[80vh] flex items-center justify-center overflow-hidden">
+      <img src="https://placehold.co/1920x1080?text=Sakuracchi+Universe" alt="Hero BG" class="absolute inset-0 w-full h-full object-cover opacity-40" />
+      <div class="relative z-10 text-center px-4">
+        <h2 class="text-4xl md:text-6xl font-bold neon-title">VRM × Game × NFT</h2>
+        <p class="mt-4 text-lg md:text-2xl text-pink-200">さくらっちが創りだすデジタルワールドへようこそ！</p>
+        <a href="#projects" class="mt-8 inline-block px-8 py-3 bg-pink-600 hover:bg-pink-500 rounded-full font-semibold">作品をみる</a>
+      </div>
+    </section>
+
+    <!-- About Section (STEP 2) -->
+    <section id="about" class="max-w-4xl mx-auto py-16 px-4">
+      <h3 class="text-3xl font-bold mb-6 border-b-2 border-pink-500 inline-block">About さくらっち</h3>
+      <p class="leading-relaxed text-gray-300">
+        VRMアバタークリエイター / ゲームデベロッパー。2022年より<strong>CryptoNinja</strong>の3D化プロジェクトを牽引し、<br/>
+        マージパズル「<strong>クリまじ</strong>」をはじめ、罵尻ロマ子様コラボ「<strong>ロマまじ</strong>」、ディフェンスゲーム「<strong>バーニンウォーズS</strong>」を開発。<br/>
+        VRMの"合体"など革新的な技術と、ファンファーストな運営姿勢が注目を集めている。
+      </p>
+    </section>
+
+    <!-- Projects Section (STEP 3) -->
+    <section id="projects" class="bg-gray-900 py-16">
+      <div class="max-w-6xl mx-auto px-4">
+        <h3 class="text-3xl font-bold mb-10 border-b-2 border-pink-500 inline-block">代表プロジェクト</h3>
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Project Card 1 -->
+          <div class="bg-gray-800 rounded-2xl shadow-lg group hover:shadow-pink-500/40 transition">
+            <img src="https://placehold.co/600x400?text=クリまじ" alt="クリまじ" class="rounded-t-2xl" />
+            <div class="p-5">
+              <h4 class="text-xl font-semibold">クリプトニンジャまーじ！</h4>
+              <p class="text-sm mt-2 text-gray-400">忍者キャラをマージして進化！コミュニティ沼ゲー爆誕。</p>
+            </div>
+          </div>
+          <!-- Project Card 2 -->
+          <div class="bg-gray-800 rounded-2xl shadow-lg group hover:shadow-pink-500/40 transition">
+            <img src="https://placehold.co/600x400?text=ロマまじ" alt="ロマまじ" class="rounded-t-2xl" />
+            <div class="p-5">
+              <h4 class="text-xl font-semibold">ロマ子様まーじ！</h4>
+              <p class="text-sm mt-2 text-gray-400">罵尻ロマ子様×スイカゲームの異色コラボ落ち物パズル。</p>
+            </div>
+          </div>
+          <!-- Project Card 3 -->
+          <div class="bg-gray-800 rounded-2xl shadow-lg group hover:shadow-pink-500/40 transition">
+            <img src="https://placehold.co/600x400?text=バーニンウォーズS" alt="バーニンウォーズS" class="rounded-t-2xl" />
+            <div class="p-5">
+              <h4 class="text-xl font-semibold">バーニンウォーズS</h4>
+              <p class="text-sm mt-2 text-gray-400">CNPディフェンスゲームをさくらっち流にリビルド！</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Crowdfunding & Pass Section (STEP 4) -->
+    <section id="crowdfunding" class="max-w-6xl mx-auto py-16 px-4">
+      <h3 class="text-3xl font-bold mb-6 border-b-2 border-pink-500 inline-block">クラウドファンディング & パス</h3>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-pink-600/10 p-6 rounded-2xl border border-pink-600/30">
+          <h4 class="text-xl font-semibold text-pink-300">SAKURA GAME PASS</h4>
+          <p class="mt-2 text-gray-300">さくらっちの全プロジェクトを継続支援できるPass型NFT。毎月新作VRMや限定コミュニティ付き！
+          </p>
+          <a href="https://cryptoninja-3d.com/pass/index40.html" target="_blank" class="inline-block mt-4 px-6 py-2 bg-pink-600 hover:bg-pink-500 rounded-full text-sm font-medium">購入ページへ</a>
+        </div>
+        <div class="bg-pink-600/10 p-6 rounded-2xl border border-pink-600/30">
+          <h4 class="text-xl font-semibold text-pink-300">CNP⭐️VRMアバターコレクション</h4>
+          <p class="mt-2 text-gray-300">全100種VRM付きNFT！3体・5体購入特典や合体キャンペーンで話題沸騰。</p>
+          <a href="https://x.com/Sakurachi_NFT/status/1925367600470425682" target="_blank" class="inline-block mt-4 px-6 py-2 bg-pink-600 hover:bg-pink-500 rounded-full text-sm font-medium">詳細ツイートを見る</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section (STEP 5) -->
+    <section id="gallery" class="bg-gray-900 py-16">
+      <div class="max-w-6xl mx-auto px-4">
+        <h3 class="text-3xl font-bold mb-10 border-b-2 border-pink-500 inline-block">ギャラリー</h3>
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <img src="https://placehold.co/500x500?text=VRM+Preview+1" class="rounded-xl" alt="VRM Preview" />
+          <img src="https://placehold.co/500x500?text=VRM+Preview+2" class="rounded-xl" alt="VRM Preview" />
+          <img src="https://placehold.co/500x500?text=VRM+Preview+3" class="rounded-xl" alt="VRM Preview" />
+          <img src="https://placehold.co/500x500?text=Gameplay+Screenshot" class="rounded-xl" alt="Gameplay" />
+          <img src="https://placehold.co/500x500?text=Concept+Art" class="rounded-xl" alt="Concept Art" />
+          <img src="https://placehold.co/500x500?text=Fan+Art" class="rounded-xl" alt="Fan Art" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-gray-900 border-t border-pink-500/30 text-center text-sm text-gray-400">
+      <p> 2025 Sakuracchi Fan Project. This is an unofficial site created by fans.</p>
+      <p class="mt-1">Built with by アースキー & ChatGPT.</p>
+    </footer>
+  </body>
+</html>
