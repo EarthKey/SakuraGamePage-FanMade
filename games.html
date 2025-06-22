@@ -11,8 +11,9 @@
     <header class="sticky top-0 z-50 bg-gray-900/80 backdrop-blur border-b border-pink-500/30">
       <div class="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
         <h1 class="font-extrabold text-xl md:text-2xl">Sakuracchi Games</h1>
-        <nav class="space-x-4 hidden md:block">
+        <nav class="space-x-4 hidden md:flex items-center">
           <a href="index.html" class="hover:text-pink-400 transition">HOME</a>
+          <button onclick="window.scrollTo({top:0,behavior:'smooth'});" class="px-4 py-2 rounded-full bg-pink-600 hover:bg-pink-500 text-white transition">TOP ↑</button>
         </nav>
       </div>
     </header>
@@ -107,8 +108,12 @@
     </main>
 
     <!-- Footer -->
-    <footer class="py-8 bg-gray-900 border-t border-pink-500/30 text-center text-sm text-gray-400">
-      <p> 2025 Sakuracchi Fan Project. This is an unofficial site created by fans.</p>
+    <footer class="py-10 bg-gray-900 border-t border-pink-500/30 text-center text-sm text-gray-400">
+      <p>2025 Sakuracchi Fan Project. This is an unofficial site created by fans.</p>
+
+      <div class="mt-6 flex justify-center">
+        <button onclick="window.scrollTo({top:0,behavior:'smooth'});" class="px-5 py-2 rounded-full bg-pink-600 hover:bg-pink-500 text-white transition">ページトップに戻る ↑</button>
+      </div>
     </footer>
   </body>
 </html>
