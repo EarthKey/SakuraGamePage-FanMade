@@ -27,21 +27,47 @@ STEP 6: 購入ガイドセクションを追加
       .neon-title {
         text-shadow: 0 0 8px #f472b6, 0 0 16px #f472b6, 0 0 32px #db2777;
       }
+      
+      /* スクロールアニメーション */
+      .slide-up {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+      }
+      
+      .slide-up.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
     </style>
+    <script>
+      // スクロールアニメーション用スクリプト
+      document.addEventListener('DOMContentLoaded', function() {
+        const slideElements = document.querySelectorAll('.slide-up');
+        
+        function checkSlide() {
+          slideElements.forEach(element => {
+            const slideInAt = window.scrollY + window.innerHeight - element.offsetHeight / 4;
+            const elementBottom = element.offsetTop + element.offsetHeight;
+            const isHalfShown = slideInAt > element.offsetTop;
+            const isNotScrolledPast = window.scrollY < elementBottom;
+            
+            if (isHalfShown && isNotScrolledPast) {
+              element.classList.add('active');
+            }
+          });
+        }
+        
+        window.addEventListener('scroll', checkSlide);
+        checkSlide(); // 初期表示時にも実行
+      });
+    </script>
   </head>
   <body class="bg-gray-950 text-gray-100 font-sans antialiased">
     <!-- Header -->
     <header class="sticky top-0 z-50 bg-gray-900/80 backdrop-blur border-b border-pink-500/30">
       <div class="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
         <h1 class="font-extrabold text-xl md:text-2xl neon-title">Sakuracchi Unofficial Hub</h1>
-        <nav class="space-x-4 hidden md:block">
-          <a href="#about" class="hover:text-pink-400 transition">ABOUT</a>
-          <a href="#projects" class="hover:text-pink-400 transition">PROJECTS</a>
-          <a href="#crowdfunding" class="hover:text-pink-400 transition">CROWDFUNDING</a>
-          <a href="#guide" class="hover:text-pink-400 transition">GUIDE</a>
-          <a href="#gallery" class="hover:text-pink-400 transition">GALLERY</a>
-          <a href="games.html" class="hover:text-pink-400 transition">GAMES</a>
-        </nav>
       </div>
     </header>
 
@@ -56,7 +82,7 @@ STEP 6: 購入ガイドセクションを追加
     </section>
 
     <!-- About Section (STEP 2) -->
-    <section id="about" class="max-w-5xl mx-auto py-16 px-4">
+    <section id="about" class="max-w-5xl mx-auto py-16 px-4 slide-up">
       <h3 class="text-3xl font-bold mb-6 border-b-2 border-pink-500 inline-block">About さくらっち</h3>
       <div class="md:flex md:items-start md:gap-8">
         <!-- Text -->
@@ -87,7 +113,7 @@ STEP 6: 購入ガイドセクションを追加
     </section>
 
     <!-- Projects Section (STEP 3) -->
-    <section id="projects" class="bg-gray-900 py-16">
+    <section id="projects" class="bg-gray-900 py-16 slide-up">
       <div class="max-w-6xl mx-auto px-4">
         <h3 class="text-3xl font-bold mb-10 border-b-2 border-pink-500 inline-block">代表プロジェクト</h3>
         <div class="grid md:grid-cols-3 gap-8">
@@ -123,7 +149,7 @@ STEP 6: 購入ガイドセクションを追加
     </section>
 
     <!-- Crowdfunding & Pass Section (STEP 4) -->
-    <section id="crowdfunding" class="max-w-6xl mx-auto py-16 px-4">
+    <section id="crowdfunding" class="max-w-6xl mx-auto py-16 px-4 slide-up">
       <h3 class="text-3xl font-bold mb-6 border-b-2 border-pink-500 inline-block">クラウドファンディング & パス</h3>
       <div class="grid md:grid-cols-2 gap-8">
         <div class="bg-pink-600/10 p-6 rounded-2xl border border-pink-600/30">
@@ -144,7 +170,7 @@ STEP 6: 購入ガイドセクションを追加
     </section>
 
     <!-- Purchase Guide Section (STEP 6) -->
-    <section id="purchase" class="bg-gray-950 py-16 px-4 border-t border-pink-500/20">
+    <section id="purchase" class="bg-gray-950 py-16 px-4 border-t border-pink-500/20 slide-up">
       <div class="max-w-5xl mx-auto">
         <h3 class="text-3xl font-bold mb-8 border-b-2 border-pink-500 inline-block">🛒 購入ガイド & リンク一覧</h3>
 
@@ -176,16 +202,16 @@ STEP 6: 購入ガイドセクションを追加
     </section>
 
     <!-- Getting Started Guide Section -->
-    <section id="guide" class="bg-gray-900 py-16 px-4 border-t border-pink-500/20">
+    <section id="guide" class="bg-gray-900 py-16 px-4 border-t border-pink-500/20 slide-up">
       <div class="max-w-5xl mx-auto">
         <h3 class="text-3xl font-bold mb-10 border-b-2 border-pink-500 inline-block">
-          🚀 はじめ方ガイド
+          🚀 NFTの購入版のはじめ方ガイド
         </h3>
 
         <!-- Wallet Guide -->
         <div class="bg-gray-800/70 p-6 rounded-2xl mb-10">
           <h4 class="text-xl font-semibold text-pink-300">① 仮想通貨ウォレットを作ろう</h4>
-          <p class="mt-2 text-gray-300 text-sm leading-relaxed">
+          <p class="mt-2 text-gray-300 text-base md:text-lg leading-relaxed">
             NFT版アバターや Sakura Game Pass を購入するには、<br>
             <strong>MetaMask</strong> ウォレットを作成し ETH を用意するだけで OK！<br>
             10 分で完了するので初心者でも安心です。
@@ -199,7 +225,7 @@ STEP 6: 購入ガイドセクションを追加
         <!-- Avatar Upload Guide -->
         <div class="bg-gray-800/70 p-6 rounded-2xl">
           <h4 class="text-xl font-semibold text-pink-300">② アバターをアップロードしよう</h4>
-          <p class="mt-2 text-gray-300 text-sm leading-relaxed">
+          <p class="mt-2 text-gray-300 text-base md:text-lg leading-relaxed">
             購入した <strong>VRM アバター</strong> は、対応メタバースにアップロードすることで<br>
             すぐに自分のキャラとして動かせます！
           </p>
@@ -220,7 +246,7 @@ STEP 6: 購入ガイドセクションを追加
     </section>
 
     <!-- Gallery Section (STEP 5) -->
-    <section id="gallery" class="bg-gray-900 py-16">
+    <section id="gallery" class="bg-gray-900 py-16 slide-up">
       <div class="max-w-6xl mx-auto px-4">
         <h3 class="text-3xl font-bold mb-10 border-b-2 border-pink-500 inline-block">ギャラリー</h3>
         <div class="grid sm:grid-cols-1 md:grid-cols-2 gap-6">
