@@ -8,13 +8,25 @@
   </head>
   <body class="bg-gray-950 text-gray-100 font-sans antialiased">
     <!-- Header -->
-    <header class="sticky top-0 z-50 bg-gray-900/80 backdrop-blur border-b border-pink-500/30">
-      <div class="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
-        <h1 class="font-extrabold text-xl md:text-2xl">Sakuracchi Games</h1>
-        <nav class="space-x-4 hidden md:flex items-center">
-          <a href="index.html" class="hover:text-pink-400 transition">HOME</a>
-          <button onclick="window.scrollTo({top:0,behavior:'smooth'});" class="px-4 py-2 rounded-full bg-pink-600 hover:bg-pink-500 text-white transition">TOP ↑</button>
-        </nav>
+    <header class="w-full py-4 px-6 flex justify-between items-center bg-transparent fixed top-0 z-50 backdrop-blur-md shadow-sm">
+      <!-- 左側ロゴ -->
+      <a href="/" class="text-white text-lg font-bold tracking-wide">
+        🌸 Sakuracchi
+      </a>
+
+      <!-- 右側ナビゲーション -->
+      <nav class="hidden md:flex space-x-6 text-sm text-white/80">
+        <a href="index.html#about" class="hover:text-white">About</a>
+        <a href="index.html#projects" class="hover:text-white">Projects</a>
+        <a href="index.html#pass" class="hover:text-white">Pass紹介</a>
+        <a href="index.html#guide" class="hover:text-white">購入ガイド</a>
+      </nav>
+
+      <!-- CTAボタン（モバイル非表示） -->
+      <div class="hidden md:block">
+        <a href="index.html#support" class="bg-pink-500 hover:bg-pink-600 text-white text-sm py-2 px-4 rounded-full shadow">
+          🎮 支援する
+        </a>
       </div>
     </header>
 
@@ -101,11 +113,14 @@
     </main>
 
     <!-- Footer -->
-    <footer class="py-10 bg-gray-900 border-t border-pink-500/30 text-center text-sm text-gray-400">
-      <p>2025 Sakuracchi Fan Project. This is an unofficial site created by fans.</p>
-
-      <div class="mt-6 flex justify-center">
-        <button onclick="window.scrollTo({top:0,behavior:'smooth'});" class="px-5 py-2 rounded-full bg-pink-600 hover:bg-pink-500 text-white transition">ページトップに戻る ↑</button>
+    <footer class="mt-16 border-t border-white/10 py-8 text-center text-xs text-white/50">
+      <div class="mb-2">
+        2025 Sakuracchi Fan Project. This is an unofficial site created by fans.
+      </div>
+      <div class="flex justify-center space-x-4 text-white/70 mt-2 text-sm">
+        <a href="https://x.com/Sakurachi_NFT" target="_blank" class="hover:text-pink-400">X (旧Twitter)</a>
+        <a href="https://sakurachi.booth.pm/" target="_blank" class="hover:text-pink-400">BOOTH</a>
+        <a href="mailto:contact@example.com" class="hover:text-pink-400">お問い合わせ</a>
       </div>
     </footer>
   </body>
