@@ -74,7 +74,62 @@ STEP 6: 購入ガイドセクションを追加
       });
     </script>
   </head>
-  <body class="bg-gray-950 text-gray-100 font-sans antialiased">
+  <body class="bg-gray-950 text-gray-100 font-sans antialiased overflow-x-hidden">
+    <!-- Random Images Container -->
+    <div id="random-images-container" class="absolute top-0 left-0 w-full h-full -z-10"></div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const images = [
+          "Saku_0910bT.png",
+          "Saku_0910dT.png",
+          "Saku_0911qT.png",
+          "Saku_1007aT.png",
+          "Saku_1007bT.png",
+          "SakuP_0820dT.png",
+          "SakuP_0908sT.png",
+          "SakuP_seiza1T.png",
+          "SakuyaF_dressT.png",
+          "SakuyF_peaceT.png",
+          "Xiao_seizaT.png",
+          "Xiao1111mT.png",
+          "Xiao1111rT.png",
+          "Xiao1112eT.png",
+          "Xiao1112jT.png",
+          "Xiao1112nT.png",
+          "XiaoF_jumpT.png",
+          "XiaoP_seiza2T.png",
+          "XiaoP_seizaT.png",
+          "XiaoP_sq4T.png",
+          "XiaoP_tired3T.png"
+        ];
+        const container = document.getElementById('random-images-container');
+        const numImages = 8; // 表示する画像の数
+
+        // 画像をシャッフルして、重複なく選択
+        const shuffledImages = images.sort(() => 0.5 - Math.random());
+        const selectedImages = shuffledImages.slice(0, numImages);
+
+        selectedImages.forEach((imageName, index) => {
+          const img = document.createElement('img');
+          img.src = `img/SakuTX/${imageName}`;
+          img.className = 'absolute w-32 h-32 object-contain opacity-20';
+          
+          // 左右交互に配置
+          if (index % 2 === 0) {
+            img.style.left = `${Math.random() * 20}vw`; // 画面左側
+          } else {
+            img.style.right = `${Math.random() * 20}vw`; // 画面右側
+          }
+          
+          // Y軸の位置をランダムに
+          img.style.top = `${10 + Math.random() * 80}vh`;
+          
+          container.appendChild(img);
+        });
+      });
+    </script>
+
     <!-- Header -->
     <header class="w-full py-4 px-6 flex justify-between items-center bg-transparent fixed top-0 z-50 backdrop-blur-md shadow-sm">
       <!-- 左側ロゴ -->
