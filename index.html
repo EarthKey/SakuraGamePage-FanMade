@@ -77,33 +77,42 @@ STEP 6: 購入ガイドセクションを追加
   <body class="bg-gray-950 text-gray-100 font-sans antialiased overflow-x-hidden">
     <!-- Loading Screen -->
     <div id="loading-screen" class="fixed inset-0 bg-gray-950 z-[100] flex justify-center items-center overflow-hidden">
-        <div class="relative w-full h-full">
-            <img src="img/SakuTX/SakuP_seiza1T.png" alt="Loading Image 1" class="absolute w-48 h-48 object-contain" style="top: 50%; left: 25%; transform: translate(-50%, -50%); animation: jiggle-left 4s steps(8, end) forwards;">
-            <img src="img/SakuTX/XiaoP_seiza2T.png" alt="Loading Image 2" class="absolute w-48 h-48 object-contain" style="top: 50%; right: 25%; transform: translate(50%, -50%); animation: jiggle-right 4s steps(8, end) forwards;">
-            <p class="absolute bottom-10 left-1/2 -translate-x-1/2 text-white text-lg">Loading...</p>
+        <div class="relative w-full h-full flex justify-between items-center">
+            <img src="img/SakuTX/SakuP_seiza1T.png" alt="Loading Image 1" class="absolute w-48 h-48 object-contain left-0 animation-stop-motion-left">
+            <img src="img/SakuTX/XiaoP_seiza2T.png" alt="Loading Image 2" class="absolute w-48 h-48 object-contain right-0 animation-stop-motion-right">
+            <p class="text-6xl font-bold text-white loading-text-light-source">Loading...</p>
         </div>
     </div>
 
     <style>
-        @keyframes jiggle-left {
-            0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
-            12.5% { transform: translate(-55%, -50%) rotate(-5deg); }
-            25% { transform: translate(-45%, -50%) rotate(5deg); }
-            37.5% { transform: translate(-55%, -50%) rotate(-5deg); }
-            50% { transform: translate(-45%, -50%) rotate(5deg); }
-            62.5% { transform: translate(-55%, -50%) rotate(-5deg); }
-            75% { transform: translate(-45%, -50%) rotate(5deg); }
-            87.5% { transform: translate(-50%, -50%) rotate(0deg); }
+        /* Loading Text Light Source */
+        .loading-text-light-source {
+            text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #f472b6, 0 0 40px #f472b6, 0 0 50px #db2777, 0 0 60px #db2777, 0 0 70px #db2777;
         }
-        @keyframes jiggle-right {
-            0%, 100% { transform: translate(50%, -50%) rotate(0deg); }
-            12.5% { transform: translate(55%, -50%) rotate(5deg); }
-            25% { transform: translate(45%, -50%) rotate(-5deg); }
-            37.5% { transform: translate(55%, -50%) rotate(5deg); }
-            50% { transform: translate(45%, -50%) rotate(-5deg); }
-            62.5% { transform: translate(55%, -50%) rotate(5deg); }
-            75% { transform: translate(45%, -50%) rotate(-5deg); }
-            87.5% { transform: translate(50%, -50%) rotate(0deg); }
+
+        /* Stop Motion Animation */
+        @keyframes stop-motion-left {
+            0% { transform: translateX(0) rotate(0deg); }
+            25% { transform: translateX(20px) rotate(5deg); }
+            50% { transform: translateX(0) rotate(0deg); }
+            75% { transform: translateX(20px) rotate(5deg); }
+            100% { transform: translateX(0) rotate(0deg); }
+        }
+
+        @keyframes stop-motion-right {
+            0% { transform: translateX(0) rotate(0deg); }
+            25% { transform: translateX(-20px) rotate(-5deg); }
+            50% { transform: translateX(0) rotate(0deg); }
+            75% { transform: translateX(-20px) rotate(-5deg); }
+            100% { transform: translateX(0) rotate(0deg); }
+        }
+
+        .animation-stop-motion-left {
+            animation: stop-motion-left 1s steps(4, end) infinite;
+        }
+
+        .animation-stop-motion-right {
+            animation: stop-motion-right 1s steps(4, end) infinite;
         }
     </style>
 
