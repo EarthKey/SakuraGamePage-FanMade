@@ -156,6 +156,19 @@ STEP 6: 購入ガイドセクションを追加
         const container = document.getElementById('random-images-container');
         const numImages = 8; // 表示する画像の数
 
+        // Get the bounding rectangles of the sections
+        const aboutSection = document.getElementById('about');
+        const gallerySection = document.getElementById('gallery');
+
+        if (!aboutSection || !gallerySection) {
+            console.warn('About or Gallery section not found. Random images will not be placed.');
+            return;
+        }
+
+        const startY = aboutSection.offsetTop;
+        const endY = gallerySection.offsetTop + gallerySection.offsetHeight;
+        const placementHeight = endY - startY;
+
         // 画像をシャッフルして、重複なく選択
         const shuffledImages = images.sort(() => 0.5 - Math.random());
         const selectedImages = shuffledImages.slice(0, numImages);
@@ -172,8 +185,12 @@ STEP 6: 購入ガイドセクションを追加
             img.style.right = `${Math.random() * 20}vw`; // 画面右側
           }
           
-          // Y軸の位置をランダムに
-          img.style.top = `${10 + Math.random() * 80}vh`;
+          // Y軸の位置をランダムに、指定されたセクションの範囲内に収める
+          // Ensure image doesn't go out of bounds vertically
+          // Use a default height (e.g., 128px for w-32 h-32) if offsetHeight is not immediately available
+          const imageHeight = img.offsetHeight || 128; 
+          const randomY = startY + Math.random() * (placementHeight - imageHeight);
+          img.style.top = `${randomY}px`;
           
           container.appendChild(img);
         });
