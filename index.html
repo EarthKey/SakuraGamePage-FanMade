@@ -78,8 +78,8 @@ STEP 6: 購入ガイドセクションを追加
     <!-- Loading Screen -->
     <div id="loading-screen" class="fixed inset-0 bg-gray-950 z-[100] flex justify-center items-center overflow-hidden">
         <p class="text-6xl font-bold text-white loading-text-light-source absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">Loading...</p>
-        <img src="img/SakuTX/SakuP_seiza1T.png" alt="Loading Image 1" class="absolute w-48 h-48 object-contain animation-stop-motion-left" style="top: 50%; left: calc(50% - 200px); transform: translateY(-50%);">
-        <img src="img/SakuTX/XiaoP_seiza2T.png" alt="Loading Image 2" class="absolute w-48 h-48 object-contain animation-stop-motion-right" style="top: 50%; right: calc(50% - 200px); transform: translateY(-50%);">
+        <img src="img/SakuTX/SakuP_seiza1T.png" alt="Loading Image 1" class="absolute w-48 h-48 object-contain animation-stop-motion-left" style="top: 50%; left: calc(50% - 250px); transform: translateY(-50%);">
+        <img src="img/SakuTX/XiaoP_seiza2T.png" alt="Loading Image 2" class="absolute w-48 h-48 object-contain animation-stop-motion-right" style="top: 50%; right: calc(50% - 250px); transform: translateY(-50%);">
     </div>
 
     <style>
@@ -90,17 +90,17 @@ STEP 6: 購入ガイドセクションを追加
 
         /* Stop Motion Animation */
         @keyframes stop-motion-left {
-            0%, 100% { transform: translateX(0) translateY(-50%); }
-            25% { transform: translateX(-20px) translateY(-50%); } /* Move left */
-            50% { transform: translateX(0) translateY(-50%); }
-            75% { transform: translateX(-20px) translateY(-50%); } /* Move left again */
+            0%, 100% { transform: translateX(0) rotate(0deg); }
+            25% { transform: translateX(-20px) rotate(-5deg); } /* Move left */
+            50% { transform: translateX(0) rotate(0deg); }
+            75% { transform: translateX(-20px) rotate(-5deg); } /* Move left again */
         }
 
         @keyframes stop-motion-right {
-            0%, 100% { transform: translateX(0) translateY(-50%); }
-            25% { transform: translateX(20px) translateY(-50%); } /* Move right */
-            50% { transform: translateX(0) translateY(-50%); }
-            75% { transform: translateX(20px) translateY(-50%); } /* Move right again */
+            0%, 100% { transform: translateX(0) rotate(0deg); }
+            25% { transform: translateX(20px) rotate(5deg); } /* Move right */
+            50% { transform: translateX(0) rotate(0deg); }
+            75% { transform: translateX(20px) rotate(5deg); } /* Move right again */
         }
 
         .animation-stop-motion-left {
