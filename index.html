@@ -75,6 +75,39 @@ STEP 6: 購入ガイドセクションを追加
     </script>
   </head>
   <body class="bg-gray-950 text-gray-100 font-sans antialiased overflow-x-hidden">
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="fixed inset-0 bg-gray-950 z-[100] flex justify-center items-center">
+      <div class="relative w-64 h-64">
+        <img src="img/SakuTX/SakuP_seiza1T.png" alt="Loading Image 1" class="absolute w-48 h-48 object-contain" style="animation: slide-in-out-left 3s ease-in-out forwards;">
+        <img src="img/SakuTX/XiaoP_seiza2T.png" alt="Loading Image 2" class="absolute w-48 h-48 object-contain" style="animation: slide-in-out-right 3s ease-in-out forwards;">
+        <p class="absolute bottom-0 left-1/2 -translate-x-1/2 text-white text-lg">Loading...</p>
+      </div>
+    </div>
+
+    <style>
+      @keyframes slide-in-out-left {
+        0% { transform: translate(-100vw, -100vh) rotate(-45deg); opacity: 0; }
+        25% { transform: translate(0, 0) rotate(-45deg); opacity: 1; }
+        75% { transform: translate(0, 0) rotate(-45deg); opacity: 1; }
+        100% { transform: translate(100vw, 100vh) rotate(-45deg); opacity: 0; }
+      }
+      @keyframes slide-in-out-right {
+        0% { transform: translate(100vw, -100vh) rotate(45deg); opacity: 0; }
+        25% { transform: translate(0, 0) rotate(45deg); opacity: 1; }
+        75% { transform: translate(0, 0) rotate(45deg); opacity: 1; }
+        100% { transform: translate(-100vw, 100vh) rotate(45deg); opacity: 0; }
+      }
+    </style>
+
+    <script>
+      window.addEventListener('load', function() {
+        const loadingScreen = document.getElementById('loading-screen');
+        setTimeout(() => {
+          loadingScreen.style.display = 'none';
+        }, 3000); // 3秒後にローディング画面を非表示
+      });
+    </script>
+    
     <!-- Random Images Container -->
     <div id="random-images-container" class="absolute top-0 left-0 w-full h-full -z-10"></div>
 
