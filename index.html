@@ -25,7 +25,7 @@ STEP 6: 購入ガイドセクションを追加
   <meta property="og:type" content="website">
   <meta property="og:title" content="さくらっち非公式ファンサイト">
   <meta property="og:description" content="VRM × Game × NFT｜さくらっちの創作活動をまるっと応援！">
-  <meta property="og:url" content="https://earthkey.github.io/SakuraGamePage-FanMade/">
+  <meta property="og:url" content="https://sakura-game-page-fan-made.vercel.app/">
   <meta property="og:image"
     content="https://raw.githubusercontent.com/EarthKey/SakuraGamePage-FanMade/main/img/SGP-ogp.png">
   <!-- Twitter Card設定 -->
@@ -53,6 +53,112 @@ STEP 6: 購入ガイドセクションを追加
       opacity: 1;
       transform: translateY(0);
     }
+  </style>
+
+  <style>
+/* ══════════════════════════════════════════════════════════════
+   金継ぎ 追補スタイル ／ さくらっち非公式ファンサイト
+   2026-09-07 ・ 本体は無改変。このCSSを <head> の末尾に足すだけで効く。
+
+   狙い: 「黒地＋ネオンピンク＋ガラス調＋紫グラデ」＝AIが最初に出す型紙を外し、
+         「夜桜」——藍の地・生成りの文字・桜色の差し色・金の罫——へ寄せる。
+         暗さは保つのでキャラ切り抜き画像はそのまま生きる。
+   ══════════════════════════════════════════════════════════════ */
+
+:root {
+  --ai:   #131A29;  /* 藍鉄  地 */
+  --ai2:  #1E2A42;  /* 藍    節の地（拍） */
+  --ai3:  #2E3D5C;  /* 藍浅  カードの面・罫 */
+  --ai4:  #2E3D5C;  /* 罫（面と同色に畳んだ） */
+  --ki:   #F2EDE4;  /* 生成り 主文字 */
+  --ki2:  #CFC8BB;  /* 生成り薄 副文字 */
+  --ki3:  #A9A296;  /* 生成り弱 注記 */
+  --sakura:  #B23A63;  /* 深桜  ボタンの地（生成りの文字が比4.86で載る） */
+  --sakura2: #993054;  /* 濃桜  押したとき */
+  --sakura3: #F4A6BE;  /* 淡桜  地の上の文字 */
+  --kin:  #C9A227;  /* 金    罫・見出しの下線 */
+  --kin2: #E8C56A;  /* 金淡  ラベルの文字 */
+}
+
+/* ── 型紙①② 黒地＋金属グラデ → 藍の地 ───────────────────── */
+body.bg-gray-950, .bg-gray-950 { background-color: var(--ai) !important; }
+.bg-gray-900 { background-color: var(--ai2) !important; }
+.bg-gray-800, .bg-gray-800\/70 { background-color: var(--ai3) !important; }
+.bg-gray-700 { background-color: var(--ai4) !important; }
+
+/* ── 型紙③ ガラス調（背景ぼかし）→ 不透明の面 ────────────── */
+header.backdrop-blur-md {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background-color: var(--ai) !important;
+  border-bottom: 1px solid var(--ai4);
+  box-shadow: none !important;
+}
+
+/* ── 型紙④ 赤〜紫の高彩度グラデ → 平らな藍 ────────────────── */
+
+/* ── 型紙⑤ 円形に切り抜いたヒーロー像 → 角丸の面 ──────────── */
+#about img.w-48 {
+  border-radius: 12px !important;
+  border: 2px solid var(--kin) !important;
+}
+
+/* ── ネオンの発光をやめる（AI臭の芯・文字が読みづらくもなる） ── */
+.neon-title { text-shadow: none !important; letter-spacing: .02em; }
+.loading-text-light-source { text-shadow: 0 0 24px rgba(244,166,190,.45) !important; }
+
+/* ── 大文字の英字ラベル → 通常の字面に ──────────────────── */
+
+/* ── 破れ（低コントラスト13件）を床まで上げる ───────────── */
+.bg-pink-500, .bg-pink-600, .bg-pink-400 { background-color: var(--sakura) !important; }
+.hover\:bg-pink-500:hover, .hover\:bg-pink-600:hover { background-color: var(--sakura2) !important; }
+.bg-green-600 { background-color: #0F6B33 !important; }
+.hover\:bg-green-500:hover { background-color: #12813E !important; }
+.text-pink-400, .text-pink-300, .text-pink-200, .text-pink-200\/90 { color: var(--sakura3) !important; }
+.text-orange-300, .text-red-400 { color: var(--kin2) !important; }
+.bg-orange-500\/20 { background-color: rgba(201,162,39,.16) !important; }
+.border-orange-400\/30, .border-red-500\/50 { border-color: rgba(201,162,39,.45) !important; }
+
+/* ── 文字色を生成りの3段に揃える（色クラスタを減らす） ────── */
+body.text-gray-100, .text-gray-100 { color: var(--ki) !important; }
+.text-gray-300, .text-gray-400 { color: var(--ki2) !important; }
+.text-gray-500 { color: var(--ki3) !important; }
+.text-white, .text-white\/80, .text-white\/70 { color: var(--ki2) !important; }
+a.text-white, .text-white { color: var(--ki) !important; }
+.text-white\/50 { color: var(--ki3) !important; }
+
+/* ── 罫は金1本に（見出しの下線・節の境） ──────────────── */
+.border-pink-500, .border-pink-600\/30 { border-color: var(--kin) !important; }
+.border-pink-500\/20 { border-color: var(--ai4) !important; }
+.border-pink-500.border-4 { border-color: var(--kin) !important; }
+
+/* ── 文字サイズを5段に畳む（12/14/16/20/30＋見出し） ────── */
+.text-xs  { font-size: 12px !important; }
+.text-sm  { font-size: 14px !important; }
+.text-base, .text-lg { font-size: 16px !important; }
+.text-xl, .text-2xl  { font-size: 20px !important; }
+.text-3xl { font-size: 30px !important; }
+h4.text-lg { font-size: 20px !important; }
+a.text-white, a.hover\:text-white { font-size: 14px !important; }
+.text-4xl { font-size: clamp(28px, 4.4vw, 44px) !important; }
+.text-6xl { font-size: clamp(34px, 6vw, 60px) !important; }
+
+/* ── 角丸を3種に（12 / 999 / 図の12） ─────────────────── */
+.rounded-lg, .rounded-xl { border-radius: 12px !important; }
+
+/* ── 絶望のz-index 9999 → 100（層は 1/10/100 の3段） ────── */
+#random-images-container { z-index: 100 !important; }
+
+/* ── 行間を1.6以上に（読みやすさ） ───────────────────── */
+p { line-height: 1.75 !important; }
+li { line-height: 1.8 !important; }
+
+/* ── 詰め（最終） ────────────────────────────────────── */
+.bg-gray-800, .bg-gray-800\/70, .bg-gray-700 { background-color: #35476B !important; }  /* 面を地からもう一段離す */
+footer, footer * { color: var(--ki2) !important; }                                       /* 足元に残った純白を生成りへ */
+footer a:hover { color: var(--sakura3) !important; }
+a.mt-8 { font-size: 14px !important; }                                                   /* ボタンの段を2つに */
+
   </style>
   <script>
     // スクロールアニメーション用スクリプト
@@ -243,16 +349,16 @@ STEP 6: 購入ガイドセクションを追加
   <header
     class="w-full py-4 px-6 flex justify-between items-center bg-transparent fixed top-0 z-50 backdrop-blur-md shadow-sm">
     <!-- 左側ロゴ -->
-    <a href="https://earthkey.github.io/SakuraGamePage-FanMade/index.html"
+    <a href="/"
       class="text-white text-lg font-bold tracking-wide">
       🌸 Sakuracchi
     </a>
 
     <!-- 右側ナビゲーション -->
     <nav class="hidden md:flex space-x-6 text-sm text-white/80">
-      <a href="#about" class="hover:text-white">About</a>
-      <a href="#projects" class="hover:text-white">Projects</a>
-      <a href="#campfire-project" class="hover:text-white">Event</a>
+      <a href="#about" class="hover:text-white">さくらっちについて</a>
+      <a href="#projects" class="hover:text-white">代表作</a>
+      <a href="#aniverse" class="hover:text-white">Aniverse</a>
       <a href="#guide" class="hover:text-white">購入ガイド</a>
     </nav>
 
@@ -260,7 +366,7 @@ STEP 6: 購入ガイドセクションを追加
     <div class="hidden md:block">
       <a href="https://sakura-game-pass.welcome-mint.site/"
         target="_blank" class="bg-pink-500 hover:bg-pink-600 text-white text-sm py-2 px-4 rounded-full shadow">
-        🎮 支援する
+        🎮 ゲームパス
       </a>
     </div>
   </header>
@@ -270,8 +376,8 @@ STEP 6: 購入ガイドセクションを追加
     <img src="img/SGP-01.png" alt="Sakuracchi Universe Background"
       class="absolute inset-0 w-full h-full object-cover opacity-40" />
     <div class="relative z-10 text-center px-4">
-      <h2 class="text-4xl md:text-6xl font-bold neon-title">VRM × Game × NFT</h2>
-      <p class="mt-4 text-lg md:text-2xl text-pink-200">さくらっちが創りだすデジタルワールドへようこそ！</p>
+      <h2 class="text-4xl md:text-6xl font-bold neon-title">ゲームも、アバターも、アニメも。</h2>
+      <p class="mt-4 text-lg md:text-2xl text-pink-200">ブラウザですぐ遊べるゲーム、自分で動かせる3Dアバター、AIでアニメを作る道具。<br />さくらっちが作ったものは、どれも今日から触れます。</p>
       <a href="#projects"
         class="mt-8 inline-block px-8 py-3 bg-pink-600 hover:bg-pink-500 rounded-full font-semibold">作品をみる</a>
     </div>
@@ -279,14 +385,21 @@ STEP 6: 購入ガイドセクションを追加
 
   <!-- About Section (STEP 2) -->
   <section id="about" class="max-w-5xl mx-auto py-16 px-4 slide-up">
-    <h3 class="text-3xl font-bold mb-6 border-b-2 border-pink-500 inline-block">About さくらっち</h3>
+    <p class="mb-8 text-base leading-relaxed">
+      このページは、さくらっちの作品が好きなファンが個人で作った<strong>非公式のまとめページ</strong>です。
+    </p>
+    <p class="mb-8 text-base leading-relaxed">
+      CryptoNinjaはNinjaDAOのキャラクターであり、本作は公式ガイドラインの範囲で制作した非公式の二次創作です。
+    </p>
+    <h3 class="text-3xl font-bold mb-6 border-b-2 border-pink-500 inline-block">さくらっちについて</h3>
     <div class="md:flex md:items-start md:gap-8">
       <!-- Text -->
       <div class="md:w-2/3">
         <p class="leading-relaxed text-gray-300">
           VRMアバタークリエイター / ゲームデベロッパー。2022年より<strong>CryptoNinja</strong>の3D化プロジェクトを牽引し、<br />
           マージパズル「<strong>クリまじ</strong>」をはじめ、罵尻ロマ子様コラボ「<strong>ロマまじ</strong>」、ディフェンスゲーム「<strong>バーニンウォーズS</strong>」を開発。<br />
-          VRMの"合体"など革新的な技術と、ファンファーストな運営姿勢が注目を集めている。
+          VRMの"合体"など革新的な技術と、ファンファーストな運営姿勢が注目を集めている。<br />
+          2026年は、3DモデルとAIでアニメを作るツール<strong>「Aniverse（アニバース）」</strong>の開発に力を入れている。
         </p>
 
         <p class="mt-4 text-pink-300 text-sm flex items-center gap-2">
@@ -537,114 +650,74 @@ STEP 6: 購入ガイドセクションを追加
   </section>
 
   <!-- Event Section -->
-  <section id="event" class="bg-gray-950 py-16 px-4 border-t border-pink-500/20 slide-up">
-    <div class="max-w-5xl mx-auto">
-      <h3 class="text-3xl font-bold mb-4 border-b-2 border-pink-500 inline-block">Hakaba Party　ハロウィーンを　メタバースで楽しもう🎃</h3>
-      <div class="mb-3"><span
-          class="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-orange-500/20 text-orange-300 border border-orange-400/30">テーマ：ハロウィーン
-          in メタバース</span></div>
-      <p class="text-pink-200/90 mb-6">🌈クリプトニンジャの新キャラサスラが登場する「Hakaba Party」</p>
-      <div class="mb-8">
-        <div class="bg-gradient-to-r from-pink-600/30 to-purple-600/30 border border-pink-500/40 rounded-xl p-4">
-          <p class="text-base md:text-lg">
-            🎃ハロウィーン風アバターの紹介ページを公開しました。販売は続報をお待ちください。
-          </p>
-          <div class="mt-3 flex flex-col sm:flex-row gap-3"><a href="https://hakaba-party.my.canva.site/hakaba-party-v5"
-              target="_blank"
-              class="inline-flex items-center justify-center px-5 py-2 rounded-full bg-pink-600 hover:bg-pink-500 text-white shadow">サイトはコチラ</a>
-            <a href="https://x.com/Sakurachi_NFT/status/1975526335322698115" target="_blank"
-              class="inline-flex items-center justify-center px-5 py-2 rounded-full bg-gray-700 hover:bg-gray-600 text-white shadow">詳細ツイート</a>
-          </div>
-          </p>
-
-        </div>
-      </div>
-
-      <!-- 概要 -->
-      <div class="bg-gray-800 p-6 rounded-xl border border-pink-600/30 mb-12 md:flex md:items-start md:gap-8">
-        <div class="md:w-1/2">
-          <img width="835" height="468" src="img/SGP-VRM-5.png" srcset="img/SGP-VRM-5.png 835w"
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px" alt="Hakaba Party プレビュー（VRM）"
-            loading="lazy" decoding="async"
-            class="w-full  object-cover rounded-xl border-4 border-pink-500/50 shadow-lg mb-4 h-56 sm:h-64 md:h-72 lg:h-80"
-            onerror="this.src='img/SGP-01.png'">
-        </div>
-        <div class="md:w-1/2">
-          <h4 class="text-2xl font-semibold text-pink-300 mb-4">イベント概要</h4>
-          <ul class="text-gray-300 text-sm list-disc list-inside space-y-1 mb-6">
-            <li>テーマ：ハロウィーン in メタバース</li>
-            <li>内容：仮装交流</li>
-          </ul>
-          <div class="flex flex-col sm:flex-row gap-3">
-            <a href="https://x.com/Sakurachi_NFT" target="_blank"
-              class="flex-1 px-6 py-3 bg-pink-600 hover:bg-pink-500 rounded-full font-semibold text-center">最新情報をXで見る</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CAMPFIRE Special Section -->
-  <section id="campfire-project" class="relative py-24 px-4 overflow-hidden slide-up">
-    <!-- Background with gradient and overlay -->
-    <div class="absolute inset-0 bg-gradient-to-br from-red-900/40 via-gray-900 to-purple-900/40 z-0"></div>
-    <div class="absolute inset-0 bg-[url('img/SGP-01.png')] bg-cover bg-center opacity-10 mix-blend-overlay z-0"></div>
-    <div
-      class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-black/0 via-black/50 to-black/80 z-0">
-    </div>
-
-    <div class="relative z-10 max-w-5xl mx-auto text-center">
-      <div class="inline-block mb-6 relative group">
-        <div
-          class="absolute -inset-1 bg-gradient-to-r from-red-600 to-pink-600 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt">
-        </div>
+  <!-- Aniverse Section -->
+  <section id="aniverse" class="bg-gray-900 py-20 px-4 border-t border-pink-500/20 slide-up">
+    <div class="max-w-4xl mx-auto text-center">
+      <div>
         <span
-          class="relative inline-block py-2 px-6 rounded-full bg-gray-900 text-red-400 border border-red-500/50 text-sm font-bold tracking-wider uppercase">
-          🔥 Crowdfunding Project
+          class="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-orange-500/20 text-orange-300 border border-orange-400/30">
+          いま作っているもの
         </span>
       </div>
+      <h3 class="mt-5 text-3xl font-bold border-b-2 border-pink-500 inline-block">
+        Aniverse（アニバース）
+      </h3>
+      <p class="mt-4 text-xl">3DとAIで、アニメを作る道具</p>
 
-      <h2
-        class="text-4xl md:text-6xl font-extrabold text-white mb-8 drop-shadow-[0_0_15px_rgba(244,114,182,0.5)] leading-tight">
-        <span class="block text-2xl md:text-3xl text-pink-300 mb-2 font-medium">【誰もがアニメを作れる時代へ】</span>
-        3DxAIアニメ『忍者教室』<br />
-        シリーズ化プロジェクト
-      </h2>
-
-      <div class="mb-10 flex justify-center">
-        <img src="img/SGP-VRM-7.png" alt="忍者教室イメージ"
-          class="rounded-xl shadow-lg border-2 border-pink-500/30 w-full max-w-2xl object-cover" />
+      <div class="my-10">
+        <img src="img/SGP-VRM-7.png" alt="Aniverse で作られたアニメのイメージ" width="1908" height="1062"
+          class="rounded-xl shadow-lg border-2 border-pink-500/30 w-full max-w-2xl object-cover mx-auto" loading="lazy"
+          decoding="async" onerror="this.src='img/SGP-01.png'" />
       </div>
 
-      <p class="text-lg md:text-xl text-gray-300 mb-12 leading-relaxed max-w-3xl mx-auto">
-        さくらっちが挑む、3DとAI技術を融合させた次世代のアニメ制作。<br />
-        クリエイターの未来を切り拓くこの挑戦に、あなたの力を貸してください！
+      <p class="mt-2 text-base leading-relaxed text-left">
+        3Dモデルからアニメを作るツールです。
+      </p>
+      <p class="mt-4 text-base leading-relaxed text-left">
+        AIを制作の助手として使うことで、アニメ制作にかかる費用と時間を減らす。
+      </p>
+      <p class="mt-4 text-base leading-relaxed text-left">
+        そうして、個人でもアニメを作り続けて発表していける形をめざしています。
+      </p>
+      <p class="mt-6 text-base leading-relaxed text-left">
+        特徴は3つ。プロンプトだけでなく<strong>ポーズをつけた画像からアニメを作れる</strong>こと。
+      </p>
+      <p class="mt-4 text-base leading-relaxed text-left">
+        日本のアニメらしい絵柄で出せること。
+      </p>
+      <p class="mt-4 text-base leading-relaxed text-left">
+        そして、キャラクター自体もこのツールの中で作れること（VRoid Hub にも対応）。
+      </p>
+      <p class="mt-6 text-base leading-relaxed text-left">
+        いまは<strong>Windows版のデモを無料で配布中</strong>。価格プランは準備中とのことです。
+      </p>
+      <p class="mt-6 text-base leading-relaxed text-left">
+        これまでこのページで紹介していた <strong>3DxAIアニメ『忍者教室』</strong> は、
+        Aniverse で作られたデモ作品として公式サイトに載っています。
       </p>
 
-      <div class="flex flex-col sm:flex-row justify-center gap-6 items-center">
-        <a href="https://hakaba-party.my.canva.site/animetool-aiv2" target="_blank"
-          class="group relative inline-flex items-center justify-center px-8 py-4 font-bold text-white transition-all duration-300 bg-pink-400 rounded-full hover:bg-pink-500 hover:scale-105 hover:shadow-[0_0_20px_-5px_rgba(244,114,182,0.6)] focus:outline-none ring-offset-2 focus:ring-2 ring-pink-300 overflow-hidden">
-          <span class="mr-2 text-xl">🌸</span>
-          <span class="text-lg tracking-wide">アニメ作品はコチラ</span>
+      <div class="mt-10 flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="https://drf-apps.com/" target="_blank"
+          class="inline-flex items-center justify-center px-6 py-3 rounded-full bg-pink-600 hover:bg-pink-500 text-white font-semibold shadow">
+          公式サイト（デモを無料でダウンロード）
+        </a>
+        <a href="https://www.orynth.dev/projects/aniverse-4597" target="_blank"
+          class="inline-flex items-center justify-center px-6 py-3 rounded-full border border-pink-500 hover:bg-pink-600/20 text-white font-semibold">
+          プロジェクトページを見る
         </a>
       </div>
-
-      <p class="mt-8 text-sm text-gray-500 font-mono">
-        Powered by CAMPFIRE
-      </p>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="mt-16 border-t border-white/10 py-8 text-center text-xs text-white/50">
     <div class="mb-2">
-      2025 Sakuracchi Fan Project. This is an unofficial site created by fans. by EarthKey(@EarthGigantea)
+      2026 Sakuracchi Fan Project ／ ファンが作った非公式のまとめページです。CryptoNinjaはNinjaDAOのキャラクターです。 by EarthKey(@EarthGigantea)
     </div>
     <div class="flex justify-center space-x-4 text-white/70 mt-2 text-sm">
-      <a href="#about" class="hover:text-pink-400">About</a>
-      <a href="#projects" class="hover:text-pink-400">Projects</a>
-      <a href="#event" class="hover:text-pink-400">Event</a>
+      <a href="#about" class="hover:text-pink-400">さくらっちについて</a>
+      <a href="#projects" class="hover:text-pink-400">代表作</a>
+      <a href="#aniverse" class="hover:text-pink-400">Aniverse</a>
       <a href="#guide" class="hover:text-pink-400">購入ガイド</a>
       <a href="https://x.com/Sakurachi_NFT" target="_blank" class="hover:text-pink-400">X (旧Twitter)</a>
       <a href="https://sakurachi.booth.pm/" target="_blank" class="hover:text-pink-400">BOOTH</a>
